@@ -6,6 +6,8 @@ var input_vector : Vector2 = Vector2.ZERO
 func _ready() -> void:
 	await super._ready()
 
+func enter() -> void:
+	nasc.animated_sprite_2d.play( "walk_" + nasc.facing )
 
 func physics_update(_delta: float) -> void:
 	input_vector = Input.get_vector( "move_left", "move_right", "move_up", "move_down" )
