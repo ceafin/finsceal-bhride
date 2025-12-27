@@ -1023,8 +1023,7 @@ shape = SubResource("RectangleShape2D_1h3k9")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_ur7pv")
-animation = &"walk_right"
-frame_progress = 0.6177122
+animation = &"walk_down"
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_tauil")

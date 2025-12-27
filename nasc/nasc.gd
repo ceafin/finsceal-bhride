@@ -29,5 +29,5 @@ func set_facing_direction() -> void:
 		if is_equal_approx( input_dir.length_squared(), 1.0 ):
 			facing = dirs[ input_dir ]
 		
-		if interaction_ray:
-			interaction_ray.target_position = input_dir * 12
+			if interaction_ray:
+				interaction_ray.target_position = input_dir * 12
