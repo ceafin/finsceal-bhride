@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b40ph65b3l5k4"]
+
+[node name="Overworld" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]

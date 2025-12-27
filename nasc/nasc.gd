@@ -7,7 +7,6 @@ var is_carrying : bool = false
 var has_shield : int = SHIELD_0
 
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
-@onready var interaction_area : Area2D = $InteractionArea
 @onready var interaction_ray: RayCast2D = $InteractionRay
 
 # Speeds that look pretty: 42.5, 85.0, 170.0

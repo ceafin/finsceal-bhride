@@ -7,6 +7,10 @@ func _ready() -> void:
 	await super._ready()
 
 func enter() -> void:
+	pass
+	
+func physics_update(_delta: float) -> void:
+	
 	if nasc.is_carrying:
 		nasc.animated_sprite_2d.play( "carry_" + nasc.facing )
 	elif nasc.has_shield:
@@ -18,8 +22,7 @@ func enter() -> void:
 			nasc.animated_sprite_2d.play( "walk_" + nasc.facing )
 	else:
 		nasc.animated_sprite_2d.play( "walk_" + nasc.facing )
-
-func physics_update(_delta: float) -> void:
+	
 	input_vector = Input.get_vector( "move_left", "move_right", "move_up", "move_down" )
 
 	nasc.velocity = input_vector * nasc.movement_speed
