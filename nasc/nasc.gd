@@ -1,6 +1,11 @@
 extends CharacterBody2D
 class_name Nasc
 
+enum { SHIELD_0, SHIELD_1, SHIELD_2 }
+
+var is_carrying : bool = false
+var has_shield : int = SHIELD_0
+
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_area : Area2D = $InteractionArea
 @onready var interaction_ray: RayCast2D = $InteractionRay
