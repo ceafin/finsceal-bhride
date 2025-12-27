@@ -1,0 +1,11 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+*.import
+
+.vscode
+.vscode/*
+
+docs/instructions.md
+/docs/instructions.md
