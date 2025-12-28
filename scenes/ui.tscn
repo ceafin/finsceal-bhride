@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqeokt701xasg"]
+[gd_scene load_steps=3 format=3 uid="uid://bqeokt701xasg"]
 
 [ext_resource type="Script" uid="uid://clr3sb3nh8ll5" path="res://scripts/ui.gd" id="1_nt7q6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nt7q6"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="Control"]
 process_mode = 3
@@ -22,3 +25,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.972549, 0.972549, 0.972549, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 159.0
+grow_vertical = 0
+text = "Label For Something"
+label_settings = SubResource("LabelSettings_nt7q6")
+vertical_alignment = 2
