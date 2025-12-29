@@ -15,7 +15,9 @@ process_mode = 1
 [node name="Overworld" parent="World" instance=ExtResource("2_lbhrr")]
 
 [node name="Player" parent="World" instance=ExtResource("2_qbsmt")]
-position = Vector2(148, 96)
+position = Vector2(152, 154)
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

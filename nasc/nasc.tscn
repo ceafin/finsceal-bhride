@@ -1012,6 +1012,7 @@ animations = [{
 }]
 
 [node name="Nasc" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 20
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_j2v7k")
