@@ -1,7 +1,8 @@
 extends Control
 class_name UI
 
-const CLOSED_POSITION : Vector2 = Vector2( 0, -156 )
+# Resolution: 400x224
+const CLOSED_POSITION : Vector2 = Vector2( 0, -188 )
 const OPENED_POSITION : Vector2 = Vector2( 0, 0 )
 
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqeokt701xasg"]
+[gd_scene load_steps=4 format=3 uid="uid://bqeokt701xasg"]
 
 [ext_resource type="Script" uid="uid://clr3sb3nh8ll5" path="res://scripts/ui.gd" id="1_nt7q6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_nt7q6"]
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://d0gdd1v2xfweg" path="res://assets/Sprite sheet for Basic Pack.png" id="2_x4jx1"]
+[ext_resource type="Texture2D" uid="uid://c7v02ul7nhs4g" path="res://assets/wip_hud.png" id="3_yev5y"]
 
 [node name="UI" type="Control"]
 process_mode = 3
@@ -17,7 +16,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_nt7q6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="AdventureMenu" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,199 +27,180 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="InventoryContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="InventoryMenu" type="NinePatchRect" parent="AdventureMenu"]
 layout_mode = 2
 size_flags_vertical = 3
+texture = ExtResource("2_x4jx1")
+region_rect = Rect2(163, 178, 90, 27)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="AdventureMenu/InventoryMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="InvHBox" type="HBoxContainer" parent="AdventureMenu/InventoryMenu/MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/InventoryContainer"]
+[node name="Equipables" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/h_separation = 1
-theme_override_constants/v_separation = 1
-columns = 4
 
-[node name="Panel" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="GridContainer" type="GridContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 7
 
-[node name="Panel13" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel14" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel2" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel15" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel3" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel16" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel4" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel2" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel5" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel3" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel6" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel4" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel7" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel5" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel8" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel6" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel9" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel7" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel10" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel8" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel11" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel9" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel12" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel10" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel13" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel11" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel14" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Panel12" type="Panel" parent="VBoxContainer/InventoryContainer/GridContainer"]
-custom_minimum_size = Vector2(48, 32)
+[node name="Panel15" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/InventoryContainer"]
+[node name="Panel16" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-theme_override_constants/separation = 1
 
-[node name="Panel" type="Panel" parent="VBoxContainer/InventoryContainer/VBoxContainer"]
-custom_minimum_size = Vector2(56, 0)
+[node name="Panel17" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Panel2" type="Panel" parent="VBoxContainer/InventoryContainer/VBoxContainer"]
-custom_minimum_size = Vector2(56, 0)
+[node name="Panel18" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Panel3" type="Panel" parent="VBoxContainer/InventoryContainer/VBoxContainer"]
-custom_minimum_size = Vector2(56, 0)
+[node name="Panel19" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Panel4" type="Panel" parent="VBoxContainer/InventoryContainer/VBoxContainer"]
-custom_minimum_size = Vector2(56, 0)
+[node name="Panel20" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Panel5" type="Panel" parent="VBoxContainer/InventoryContainer/VBoxContainer"]
-custom_minimum_size = Vector2(56, 0)
+[node name="Abilities" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox"]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="OverlapHUDContainer" type="HBoxContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 24)
+[node name="VBoxContainer" type="VBoxContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities"]
 layout_mode = 2
-size_flags_vertical = 8
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/OverlapHUDContainer"]
+[node name="Panel" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Label For Something"
-label_settings = SubResource("LabelSettings_nt7q6")
+size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="VBoxContainer/OverlapHUDContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="Panel2" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 
-[node name="Panel2" type="Panel" parent="VBoxContainer/OverlapHUDContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="Panel3" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 
-[node name="Panel3" type="Panel" parent="VBoxContainer/OverlapHUDContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="Panel4" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 
-[node name="Panel4" type="Panel" parent="VBoxContainer/OverlapHUDContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="Panel5" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 
-[node name="Panel5" type="Panel" parent="VBoxContainer/OverlapHUDContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="OverlapHUD" type="NinePatchRect" parent="AdventureMenu"]
+custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+texture = ExtResource("2_x4jx1")
+region_rect = Rect2(163, 178, 90, 27)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 6
 
-[node name="Panel6" type="Panel" parent="VBoxContainer/OverlapHUDContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="MarginContainer" type="MarginContainer" parent="AdventureMenu/OverlapHUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 6
 
-[node name="Panel7" type="Panel" parent="VBoxContainer/OverlapHUDContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="OverlapHBox" type="HBoxContainer" parent="AdventureMenu/OverlapHUD/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+theme_override_constants/separation = 0
 
-[node name="Panel8" type="Panel" parent="VBoxContainer/OverlapHUDContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/MarginContainer/OverlapHBox"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+texture = ExtResource("3_yev5y")

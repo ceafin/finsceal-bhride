@@ -15,7 +15,7 @@ process_mode = 1
 [node name="Overworld" parent="World" instance=ExtResource("2_lbhrr")]
 
 [node name="Player" parent="World" instance=ExtResource("2_qbsmt")]
-position = Vector2(152, 154)
+position = Vector2(217, 60)
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
 
@@ -23,5 +23,5 @@ position = Vector2(152, 154)
 process_mode = 3
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("3_lnu2h")]
-offset_top = -156.0
-offset_bottom = -156.0
+offset_top = -188.0
+offset_bottom = -188.0
