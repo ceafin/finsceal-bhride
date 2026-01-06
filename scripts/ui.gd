@@ -37,9 +37,9 @@ func _input( event: InputEvent ) -> void:
 			get_viewport().set_input_as_handled()
 	
 
-
-func _unhandled_input(event: InputEvent) -> void:
-	print( "Unhandled: ", event.as_text() )
+# Escaped Inputs Printed
+# func _unhandled_input(event: InputEvent) -> void:
+# 	print( "Unhandled: ", event.as_text() )
 
 func enter_pause_menu() -> void:
 	print( "Pulling down the pause menu!" )

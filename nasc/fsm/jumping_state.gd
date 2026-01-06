@@ -15,6 +15,8 @@ func enter() -> void:
 	
 	# Play appropriate jump animation
 	nasc.animated_sprite_2d.play("jump_" + nasc.facing)
+	
+	print( "Entered Jumping State")
 
 func physics_update(delta: float) -> void:
 	jump_timer += delta

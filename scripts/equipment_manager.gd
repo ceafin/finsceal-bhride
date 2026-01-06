@@ -1,4 +1,5 @@
 extends Node
+
 class_name EquipmentManager
 
 signal slot_changed( slot_name: String, item: Item )
@@ -23,6 +24,8 @@ func _ready() -> void:
 	# Default equipment setup for testing
 	# Figure out how to load this from saved data later
 	equip_item( "slot_south", inventory[0] )
+	equip_item( "slot_west", inventory[1] )
+	equip_item( "slot_east", inventory[2] )
 
 # Equip an item to a slot
 func equip_item( slot_name: String, item: Item ) -> void:

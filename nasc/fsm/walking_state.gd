@@ -7,7 +7,7 @@ func _ready() -> void:
 	await super._ready()
 
 func enter() -> void:
-	pass
+	print( "Entered Walking State")
 	
 func physics_update(_delta: float) -> void:
 	

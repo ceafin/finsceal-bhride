@@ -7,6 +7,7 @@ func _ready() -> void:
 func enter() -> void:
 	nasc.velocity = Vector2.ZERO
 	nasc.animated_sprite_2d.pause()
+	print( "Entered Idle State")
 
 # func physics_update(_delta: float) -> void:
 # 	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
