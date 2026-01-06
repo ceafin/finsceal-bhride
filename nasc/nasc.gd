@@ -5,24 +5,30 @@ enum { SHIELD_0, SHIELD_1, SHIELD_2 }
 
 var is_carrying : bool = false
 var has_shield : int = SHIELD_0
+var is_performing_discrete_action : bool = false
+var jump_momentum : Vector2 = Vector2.ZERO
 
+# Set at the Game Node Scene Root
+var equipment_manager : EquipmentManager:
+	set( value ):
+		equipment_manager = value
+		# Assign the scene's Input Manager when assigning the Equipment Manager
+		if input_handler:
+			input_handler.equipment_manager = equipment_manager
+
+@onready var input_handler : InputHandler = $InputHandler
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
-@onready var interaction_ray: RayCast2D = $InteractionRay
+@onready var interaction_ray : RayCast2D = $InteractionRay
 
 # Speeds that look pretty: 42.5, 85.0, 170.0
 # speed = d * 2^.5 * physics_fps
 var movement_speed : float = 60.0
-var dirs : Dictionary = {
-	Vector2.DOWN: "down",
-	Vector2.UP: "up",
-	Vector2.LEFT: "left",
-	Vector2.RIGHT: "right"
-}
+var dirs : Dictionary = { Vector2.DOWN: "down", Vector2.UP: "up", Vector2.LEFT: "left", Vector2.RIGHT: "right" }
 var facing : String = dirs[ Vector2.DOWN ]
 
 func _physics_process( _delta: float ) -> void:
 	set_facing_direction()
-	
+
 
 func set_facing_direction() -> void:
 	var input_dir : Vector2 = Vector2(
@@ -35,3 +41,7 @@ func set_facing_direction() -> void:
 		
 			if interaction_ray:
 				interaction_ray.target_position = input_dir * 12
+
+func is_grounded() -> bool:
+	# Implement floor detection if needed
+	return true

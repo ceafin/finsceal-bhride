@@ -3,25 +3,16 @@ class_name NascFSM
 
 
 @export var initial_state : NascState = null  # GUI assignable if I want
+@export var input_handler : InputHandler = null  # GUI assignable if I want
 
 var nasc : CharacterBody2D  # Hold the Nasc Player node
 var current_state : NascState
 var states : Dictionary = {}
+# var input_handler : InputHandler # To hold the input handler for the Nasc Player
 
-# I think this is vestigial cause now I'm doing it in _ready()
-@onready var state : NascState = (
-	func get_initial_state() -> NascState:
-	return initial_state if initial_state != null else get_child(0)
-	).call()
-	
 
 func _ready() -> void:
-	# Get the children states as FSM comes online
-	for child_state in get_children():
-		if child_state is NascState:
-			states[ child_state.name.to_lower() ] = child_state
-			child_state.finished.connect( _transition_to_next_state )
-
+	
 	# Wait for owning parent node and check it
 	await owner.ready
 	nasc = owner as Nasc
@@ -30,11 +21,25 @@ func _ready() -> void:
 		"The FSM must be used only in the Nasc Player scene. It needs the owner to be a Nasc Player node."
 	)
 	
+	# Get the children states as FSM comes online
+	for child_state in get_children():
+		if child_state is NascState:
+			states[ child_state.name.to_lower() ] = child_state
+			child_state.finished.connect( _transition_to_next_state )
+	
 	# Start with initial state or first child state
 	var starting_state = initial_state if initial_state != null else get_child(0)
 	if starting_state and starting_state is NascState:
 		starting_state.enter()
 		current_state = starting_state
+	
+	# If no input handler assigned, try to find one in scene
+	if input_handler == null:
+		input_handler = nasc.get_node_or_null( "InputHandler" )
+		assert(
+			input_handler != null,
+			"The NascFSM needs an InputHandler assigned or a child InputHandler node inside the Nasc Player scene."
+		)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if current_state: current_state.handle_input(event)
@@ -44,7 +49,14 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if current_state:
-		current_state.physics_update(delta)
+		# Get command from input handler
+		var command : Command = input_handler.get_command()
+
+		# Let current state handle the command
+		current_state.handle_command( command )
+
+		# Let current state do its own physics update
+		current_state.physics_update( delta )
 	
 	nasc.move_and_slide()
 

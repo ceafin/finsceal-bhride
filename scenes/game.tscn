@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://7c8hs8t8ljpe"]
+[gd_scene load_steps=6 format=3 uid="uid://7c8hs8t8ljpe"]
 
 [ext_resource type="Script" uid="uid://tggbku6g0iad" path="res://scripts/game.gd" id="1_0h5k6"]
+[ext_resource type="Script" uid="uid://dsi0nwbkym4u8" path="res://scripts/equipment_manager.gd" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://b40ph65b3l5k4" path="res://scenes/overworld.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://itc72veiv3b4" path="res://nasc/nasc.tscn" id="2_qbsmt"]
 [ext_resource type="PackedScene" uid="uid://bqeokt701xasg" path="res://scenes/ui.tscn" id="3_lnu2h"]
@@ -8,6 +9,11 @@
 [node name="Game" type="Node"]
 process_mode = 3
 script = ExtResource("1_0h5k6")
+
+[node name="EquipmentManager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_iywne")
+metadata/_custom_type_script = "uid://dsi0nwbkym4u8"
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1

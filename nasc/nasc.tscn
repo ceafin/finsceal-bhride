@@ -1,6 +1,7 @@
-[gd_scene load_steps=108 format=3 uid="uid://itc72veiv3b4"]
+[gd_scene load_steps=109 format=3 uid="uid://itc72veiv3b4"]
 
 [ext_resource type="Script" uid="uid://dge6f2r1soeri" path="res://nasc/nasc.gd" id="1_j2v7k"]
+[ext_resource type="Script" uid="uid://bcnwddrh4p546" path="res://nasc/input_handler.gd" id="2_ah7tq"]
 [ext_resource type="Texture2D" uid="uid://xfqss4lgoqdo" path="res://assets/link_sheet.png" id="2_senqa"]
 [ext_resource type="Script" uid="uid://cvpw10mgrlqc0" path="res://nasc/fsm/nasc_fsm.gd" id="3_tauil"]
 [ext_resource type="Script" uid="uid://7q0l7gdce6w7" path="res://nasc/fsm/idle_state.gd" id="4_xt2jp"]
@@ -1017,14 +1018,9 @@ motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_j2v7k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_1h3k9")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -4)
-sprite_frames = SubResource("SpriteFrames_ur7pv")
-animation = &"walk_down"
+[node name="InputHandler" type="Node" parent="."]
+script = ExtResource("2_ah7tq")
+metadata/_custom_type_script = "uid://bcnwddrh4p546"
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_tauil")
@@ -1038,6 +1034,15 @@ metadata/_custom_type_script = "uid://7q0l7gdce6w7"
 [node name="Walking" type="Node" parent="FSM"]
 script = ExtResource("5_yktvx")
 metadata/_custom_type_script = "uid://d1g6bdsmnihnh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1h3k9")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_ur7pv")
+animation = &"walk_down"
 
 [node name="InteractionRay" type="RayCast2D" parent="."]
 target_position = Vector2(0, 10)
