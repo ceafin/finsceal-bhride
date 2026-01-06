@@ -1,10 +1,31 @@
 extends Control
 class_name UI
 
+const HEART_FULL = preload( "res://assets/heart_full.png" )
+const HEART_PART = preload( "res://assets/heart_part.png" )
+const HEART_EMPTY = preload( "res://assets/heart_empty.png" )
+
+
 # Resolution: 400x224
-const CLOSED_POSITION : Vector2 = Vector2( 0, -188 )
+const CLOSED_POSITION : Vector2 = Vector2( 0, -224 )
 const OPENED_POSITION : Vector2 = Vector2( 0, 0 )
 
+var _hearts : float = 3.0
+var hearts : float :
+	get:
+		return _hearts
+	set( value ):
+		for i in heart_grid.get_child_count():
+			if value > i * 2 + 1:
+				heart_grid.get_child( i ).texture = HEART_FULL
+			elif value > i * 2:
+				heart_grid.get_child( i ).texture = HEART_PART
+			else:
+				heart_grid.get_child( i ).texture = HEART_EMPTY
+		_hearts = value
+
+
+@onready var heart_grid : GridContainer = $AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid
 
 func _input( event: InputEvent ) -> void:
 	if event.is_action_type() and not event.is_echo():
@@ -13,8 +34,8 @@ func _input( event: InputEvent ) -> void:
 				exit_pause_menu()
 			elif !get_tree().paused:
 				enter_pause_menu()
-			
-	get_viewport().set_input_as_handled()
+			get_viewport().set_input_as_handled()
+	
 
 
 func _unhandled_input(event: InputEvent) -> void:

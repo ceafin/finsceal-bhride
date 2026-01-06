@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqeokt701xasg"]
+[gd_scene load_steps=10 format=3 uid="uid://bqeokt701xasg"]
 
 [ext_resource type="Script" uid="uid://clr3sb3nh8ll5" path="res://scripts/ui.gd" id="1_nt7q6"]
 [ext_resource type="Texture2D" uid="uid://d0gdd1v2xfweg" path="res://assets/Sprite sheet for Basic Pack.png" id="2_x4jx1"]
-[ext_resource type="Texture2D" uid="uid://c7v02ul7nhs4g" path="res://assets/wip_hud.png" id="3_yev5y"]
+[ext_resource type="Texture2D" uid="uid://dc1gtlhdfl6qc" path="res://assets/hud_button_frame_x.png" id="3_8dubc"]
+[ext_resource type="FontFile" uid="uid://bbmmhyqpu3ne7" path="res://assets/Early GameBoy.ttf" id="3_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://wmrctppm37k6" path="res://assets/heart_full.png" id="4_ktti3"]
+[ext_resource type="Texture2D" uid="uid://cuvbm723gro5c" path="res://assets/hud_button_frame_y.png" id="4_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://bxojfr5gdfa8m" path="res://assets/hud_button_frame_a.png" id="5_ktti3"]
+[ext_resource type="Texture2D" uid="uid://6pkxsfu31uc4" path="res://assets/hud_button_frame_b.png" id="6_cgfq5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8dubc"]
+line_spacing = 0.0
+font = ExtResource("3_p7vwb")
+font_size = 8
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
 
 [node name="UI" type="Control"]
 process_mode = 3
@@ -21,6 +33,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -155,52 +168,271 @@ custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel2" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
-custom_minimum_size = Vector2(28, 28)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Panel3" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
-custom_minimum_size = Vector2(28, 28)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Panel4" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
-custom_minimum_size = Vector2(28, 28)
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="Panel5" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="OverlapHUD" type="NinePatchRect" parent="AdventureMenu"]
-custom_minimum_size = Vector2(0, 36)
+custom_minimum_size = Vector2(400, 36)
 layout_mode = 2
-texture = ExtResource("2_x4jx1")
-region_rect = Rect2(163, 178, 90, 27)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="AdventureMenu/OverlapHUD"]
+[node name="OverlapHBox" type="HBoxContainer" parent="AdventureMenu/OverlapHUD"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 6
-
-[node name="OverlapHBox" type="HBoxContainer" parent="AdventureMenu/OverlapHUD/MarginContainer"]
-layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/MarginContainer/OverlapHBox"]
+[node name="LifeMeter" type="VBoxContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox"]
 layout_mode = 2
-texture = ExtResource("3_yev5y")
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="LifeLabel" type="Label" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "--- Life ---"
+label_settings = SubResource("LabelSettings_8dubc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HeartGrid" type="GridContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 10
+
+[node name="1" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="2" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="3" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="4" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="5" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="6" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="7" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="8" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="9" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="10" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="11" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="12" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="13" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="14" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="15" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="Counters" type="HBoxContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="HUDButtonAssignments" type="HBoxContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 0
+
+[node name="HUDButtonX" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource("3_8dubc")
+region_rect = Rect2(1, 1, 29, 29)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HUDItemX" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ColorRect" type="ColorRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX/HUDItemX"]
+layout_mode = 2
+
+[node name="HUDButtonY" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource("4_p7vwb")
+region_rect = Rect2(1, 1, 29, 29)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HUDItemX" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ColorRect" type="ColorRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY/HUDItemX"]
+layout_mode = 2
+
+[node name="HUDButtonA" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource("5_ktti3")
+region_rect = Rect2(1, 1, 29, 29)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HUDItemA" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ColorRect" type="ColorRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA/HUDItemA"]
+layout_mode = 2
+
+[node name="HUDButtonB" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource("6_cgfq5")
+region_rect = Rect2(1, 1, 29, 29)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HUDItemB" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ColorRect" type="ColorRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB/HUDItemB"]
+layout_mode = 2

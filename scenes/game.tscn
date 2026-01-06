@@ -23,5 +23,5 @@ position = Vector2(217, 60)
 process_mode = 3
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("3_lnu2h")]
-offset_top = -188.0
-offset_bottom = -188.0
+offset_top = -224.0
+offset_bottom = -224.0
