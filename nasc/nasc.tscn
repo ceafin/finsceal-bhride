@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://itc72veiv3b4"]
+[gd_scene load_steps=111 format=3 uid="uid://itc72veiv3b4"]
 
 [ext_resource type="Script" uid="uid://dge6f2r1soeri" path="res://nasc/nasc.gd" id="1_j2v7k"]
 [ext_resource type="Script" uid="uid://bcnwddrh4p546" path="res://nasc/input_handler.gd" id="2_ah7tq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://7q0l7gdce6w7" path="res://nasc/fsm/idle_state.gd" id="4_xt2jp"]
 [ext_resource type="Script" uid="uid://d1g6bdsmnihnh" path="res://nasc/fsm/walking_state.gd" id="5_yktvx"]
 [ext_resource type="Script" uid="uid://b3edadx1huqkx" path="res://nasc/fsm/jumping_state.gd" id="6_ah7tq"]
+[ext_resource type="Script" uid="uid://cc5btqme1m4e8" path="res://nasc/fsm/digging_state.gd" id="7_8uf3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1h3k9"]
 size = Vector2(10, 7)
@@ -464,7 +465,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_duyor")
 }],
-"loop": true,
+"loop": false,
 "name": &"dig_down",
 "speed": 3.0
 }, {
@@ -475,7 +476,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ugiqq")
 }],
-"loop": true,
+"loop": false,
 "name": &"dig_left",
 "speed": 3.0
 }, {
@@ -486,7 +487,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_stj8y")
 }],
-"loop": true,
+"loop": false,
 "name": &"dig_right",
 "speed": 3.0
 }, {
@@ -497,7 +498,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7083d")
 }],
-"loop": true,
+"loop": false,
 "name": &"dig_up",
 "speed": 3.0
 }, {
@@ -1040,6 +1041,10 @@ metadata/_custom_type_script = "uid://d1g6bdsmnihnh"
 script = ExtResource("6_ah7tq")
 metadata/_custom_type_script = "uid://b3edadx1huqkx"
 
+[node name="Digging" type="Node" parent="FSM"]
+script = ExtResource("7_8uf3y")
+metadata/_custom_type_script = "uid://cc5btqme1m4e8"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_1h3k9")
@@ -1047,7 +1052,7 @@ shape = SubResource("RectangleShape2D_1h3k9")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_ur7pv")
-animation = &"walk_down"
+animation = &"dig_up"
 
 [node name="InteractionRay" type="RayCast2D" parent="."]
 target_position = Vector2(0, 10)

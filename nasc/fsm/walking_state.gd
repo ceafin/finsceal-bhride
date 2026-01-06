@@ -7,11 +7,7 @@ func _ready() -> void:
 	await super._ready()
 
 func enter() -> void:
-	print( "Entered Walking State")
-	
-func physics_update(_delta: float) -> void:
-	
-	# Update animation based on state
+	# Update animation based on equipment
 	if nasc.is_carrying:
 		nasc.animated_sprite_2d.play( "carry_" + nasc.facing )
 	elif nasc.has_shield:
@@ -24,11 +20,6 @@ func physics_update(_delta: float) -> void:
 	else:
 		nasc.animated_sprite_2d.play( "walk_" + nasc.facing )
 	
-	# input_vector = Input.get_vector( "move_left", "move_right", "move_up", "move_down" )
-	# nasc.velocity = input_vector * nasc.movement_speed
-	# 
-	# if is_equal_approx( nasc.velocity.x, 0.0 ) and is_equal_approx( nasc.velocity.y, 0.0 ):
-	# 	finished.emit( self, "idle" )
 
 func handle_command( command: Command ) -> void:
 	super.handle_command( command )

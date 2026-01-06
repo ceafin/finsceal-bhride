@@ -24,8 +24,46 @@ var hearts : float :
 				heart_grid.get_child( i ).texture = HEART_EMPTY
 		_hearts = value
 
+# Set at the Game Node Scene Root
+var equipment_manager : EquipmentManager:
+	set( value ):
+		equipment_manager = value
+		if equipment_manager:
+			equipment_manager.slot_changed.connect( _on_slot_changed )
+			_refresh_equipment_display()
+
+# References to UI Display elements, that will be there
+@onready var slot_west_display  : TextureRect = $AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX/HUDItemX/TextureRect
+@onready var slot_north_display : TextureRect = $AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY/HUDItemY/TextureRect
+@onready var slot_east_display  : TextureRect = $AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA/HUDItemA/TextureRect
+@onready var slot_south_display : TextureRect = $AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB/HUDItemB/TextureRect
 
 @onready var heart_grid : GridContainer = $AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid
+
+func _ready() -> void:
+	_refresh_equipment_display()
+
+func _on_slot_changed( _slot_name: String, _item: Item ) -> void:
+	_refresh_equipment_display()
+	# Play sound effect for equipping/unequipping item, like:
+	# var sfx_player = get_node_or_null( "SFXPlayer" )
+	# if sfx_player:
+	#     sfx_player.play_sound( "res://sounds/equip_item.wav" )
+
+func _refresh_equipment_display() -> void:
+	if not equipment_manager:
+		return
+
+	var north = equipment_manager.get_equipped_item( "slot_north" )
+	var east  = equipment_manager.get_equipped_item( "slot_east" )
+	var south = equipment_manager.get_equipped_item( "slot_south" )
+	var west  = equipment_manager.get_equipped_item( "slot_west" )
+
+	slot_north_display.texture = north.icon if north else null
+	slot_east_display.texture  = east.icon  if east  else null
+	slot_south_display.texture = south.icon if south else null
+	slot_west_display.texture  = west.icon  if west  else null
+
 
 func _input( event: InputEvent ) -> void:
 	if event.is_action_type() and not event.is_echo():

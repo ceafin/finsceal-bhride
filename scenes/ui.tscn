@@ -353,7 +353,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="ColorRect" type="ColorRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX/HUDItemX"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX/HUDItemX"]
 layout_mode = 2
 
 [node name="HUDButtonY" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
@@ -368,7 +368,7 @@ patch_margin_top = 16
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="HUDItemX" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY"]
+[node name="HUDItemY" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -380,7 +380,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="ColorRect" type="ColorRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY/HUDItemX"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY/HUDItemY"]
 layout_mode = 2
 
 [node name="HUDButtonA" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
@@ -407,7 +407,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="ColorRect" type="ColorRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA/HUDItemA"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA/HUDItemA"]
 layout_mode = 2
 
 [node name="HUDButtonB" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
@@ -434,5 +434,5 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="ColorRect" type="ColorRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB/HUDItemB"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB/HUDItemB"]
 layout_mode = 2

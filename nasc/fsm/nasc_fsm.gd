@@ -61,6 +61,7 @@ func _physics_process(delta: float) -> void:
 	nasc.move_and_slide()
 
 func _transition_to_next_state( acting_state: NascState, new_state_name: String ) -> void:
+	print( "_transition() called to go into ", new_state_name )
 	# Don't transition into myself
 	if acting_state != current_state: return
 	
