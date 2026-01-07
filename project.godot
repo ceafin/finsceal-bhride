@@ -14,6 +14,10 @@ config/name="Finsceal Bhride"
 run/main_scene="uid://7c8hs8t8ljpe"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[autoload]
+
+SFX="*res://autoloads_and_globals/sound_effects_player.gd"
+
 [display]
 
 window/size/viewport_width=400

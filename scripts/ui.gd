@@ -5,6 +5,8 @@ const HEART_FULL = preload( "res://assets/heart_full.png" )
 const HEART_PART = preload( "res://assets/heart_part.png" )
 const HEART_EMPTY = preload( "res://assets/heart_empty.png" )
 
+const LA_PAUSE_MENU_OPEN = preload( "res://assets/sfx/LA_PauseMenu_Open.wav" )
+const LA_PAUSE_MENU_CLOSE = preload( "res://assets/sfx/LA_PauseMenu_Close.wav" )
 
 # Resolution: 400x224
 const CLOSED_POSITION : Vector2 = Vector2( 0, -224 )
@@ -83,11 +85,13 @@ func enter_pause_menu() -> void:
 	print( "Pulling down the pause menu!" )
 	get_tree().paused = not get_tree().paused
 	var pull_down_tween = create_tween()
-	pull_down_tween.tween_property( self, "global_position", OPENED_POSITION, 0.6 ).set_trans( Tween.TRANS_QUART ).set_ease( Tween.EASE_IN_OUT )
+	SFX.play( LA_PAUSE_MENU_OPEN )
+	pull_down_tween.tween_property( self, "global_position", OPENED_POSITION, 0.5 ).set_trans( Tween.TRANS_QUART ).set_ease( Tween.EASE_IN_OUT )
 
 func exit_pause_menu() -> void:
 	print( "Rolling up the pause menu!" )
 	var roll_up_tween = create_tween()
-	roll_up_tween.tween_property( self, "global_position", CLOSED_POSITION, 0.3 ).set_trans( Tween.TRANS_EXPO ).set_ease( Tween.EASE_OUT )
+	SFX.play( LA_PAUSE_MENU_CLOSE )
+	roll_up_tween.tween_property( self, "global_position", CLOSED_POSITION, 0.2 ).set_trans( Tween.TRANS_EXPO ).set_ease( Tween.EASE_OUT )
 	await roll_up_tween.finished
 	get_tree().paused = not get_tree().paused
