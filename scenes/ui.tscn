@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqeokt701xasg"]
+[gd_scene load_steps=11 format=3 uid="uid://bqeokt701xasg"]
 
 [ext_resource type="Script" uid="uid://clr3sb3nh8ll5" path="res://scripts/ui.gd" id="1_nt7q6"]
 [ext_resource type="Texture2D" uid="uid://d0gdd1v2xfweg" path="res://assets/Sprite sheet for Basic Pack.png" id="2_x4jx1"]
@@ -8,6 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cuvbm723gro5c" path="res://assets/hud_button_frame_y.png" id="4_p7vwb"]
 [ext_resource type="Texture2D" uid="uid://bxojfr5gdfa8m" path="res://assets/hud_button_frame_a.png" id="5_ktti3"]
 [ext_resource type="Texture2D" uid="uid://6pkxsfu31uc4" path="res://assets/hud_button_frame_b.png" id="6_cgfq5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ktti3"]
+line_spacing = -3.0
+font = ExtResource("3_p7vwb")
+font_color = Color(0.9529412, 0.8980392, 0.7607843, 1)
+outline_size = 4
+outline_color = Color(0.6666667, 0.4745098, 0.34901962, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8dubc"]
 line_spacing = 0.0
@@ -70,10 +77,17 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="InventoryTitleLabel" type="Label" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Some Nonsense
+About Inventory"
+label_settings = SubResource("LabelSettings_ktti3")
+
 [node name="GridContainer" type="GridContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 columns = 7
 
 [node name="Panel" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
@@ -156,6 +170,66 @@ layout_mode = 2
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
+[node name="Panel21" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel22" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel23" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel24" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel25" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel26" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel27" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel28" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel29" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel30" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel31" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel32" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel33" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel34" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Panel35" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
 [node name="Abilities" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox"]
 layout_mode = 2
 
@@ -163,12 +237,158 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Panel" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+[node name="TopSpacer" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel5" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+[node name="InvBtnAsgmts" type="GridContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="Spacer" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InvBtnX" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource("3_8dubc")
+region_rect = Rect2(1, 1, 29, 29)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="InvItemX" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnX"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnX/InvItemX"]
+layout_mode = 2
+
+[node name="Spacer2" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InvBtnY" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource("4_p7vwb")
+region_rect = Rect2(1, 1, 29, 29)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="InvItemY" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnY"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnY/InvItemY"]
+layout_mode = 2
+
+[node name="Spacer3" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InvBtnA" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource("5_ktti3")
+region_rect = Rect2(1, 1, 29, 29)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="InvItemA" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnA"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnA/InvItemA"]
+layout_mode = 2
+
+[node name="Spacer4" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InvBtnB" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource("6_cgfq5")
+region_rect = Rect2(1, 1, 29, 29)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="InvItemB" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnB"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnB/InvItemB"]
+layout_mode = 2
+
+[node name="Panel5" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomSpacer" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_vertical = 3
