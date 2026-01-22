@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqeokt701xasg"]
+[gd_scene load_steps=12 format=3 uid="uid://bqeokt701xasg"]
 
 [ext_resource type="Script" uid="uid://clr3sb3nh8ll5" path="res://scripts/ui.gd" id="1_nt7q6"]
 [ext_resource type="Texture2D" uid="uid://d0gdd1v2xfweg" path="res://assets/Sprite sheet for Basic Pack.png" id="2_x4jx1"]
 [ext_resource type="Texture2D" uid="uid://dc1gtlhdfl6qc" path="res://assets/hud_button_frame_x.png" id="3_8dubc"]
 [ext_resource type="FontFile" uid="uid://bbmmhyqpu3ne7" path="res://assets/Early GameBoy.ttf" id="3_p7vwb"]
+[ext_resource type="PackedScene" uid="uid://dy1if52qn80d8" path="res://scenes/ui_inventory_selector.tscn" id="4_cgfq5"]
 [ext_resource type="Texture2D" uid="uid://wmrctppm37k6" path="res://assets/heart_full.png" id="4_ktti3"]
 [ext_resource type="Texture2D" uid="uid://cuvbm723gro5c" path="res://assets/hud_button_frame_y.png" id="4_p7vwb"]
 [ext_resource type="Texture2D" uid="uid://bxojfr5gdfa8m" path="res://assets/hud_button_frame_a.png" id="5_ktti3"]
@@ -228,6 +229,9 @@ layout_mode = 2
 
 [node name="Panel35" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="UIInventorySelector" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables" instance=ExtResource("4_cgfq5")]
 layout_mode = 2
 
 [node name="Abilities" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox"]
