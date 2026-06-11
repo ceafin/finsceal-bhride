@@ -6,8 +6,6 @@ func _init() -> void:
 
 func execute(nasc: Nasc) -> void:
 	nasc.is_performing_discrete_action = true
-	# Implement dig logic
-	pass
 
 func can_execute(nasc: Nasc) -> bool:
 	return not nasc.is_performing_discrete_action

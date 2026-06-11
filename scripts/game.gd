@@ -12,8 +12,6 @@ func _ready() -> void:
 	# Connect the equipment manager to both player and UI
 	if player and equipment_manager:
 		player.equipment_manager = equipment_manager
-		print("Connected equipment_manager to player")
 
 	if ui and equipment_manager:
 		ui.equipment_manager = equipment_manager
-		print("Connected equipment_manager to UI")

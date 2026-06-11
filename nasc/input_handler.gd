@@ -20,8 +20,6 @@ func get_command() -> Command:
 	
 	# [Weird Case] If no equipment manager, just handle movement and idle
 	if not equipment_manager:
-		print("No equipment manager!")
-		# Fallback: just handle movement
 		input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		if input_vector != Vector2.ZERO:
 			return MoveCommand.new(input_vector)

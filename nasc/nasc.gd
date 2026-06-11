@@ -23,7 +23,7 @@ var equipment_manager : EquipmentManager:
 # Speeds that look pretty: 42.5, 85.0, 170.0
 # speed = d * 2^.5 * physics_fps
 var movement_speed : float = 60.0
-var dirs : Dictionary = { Vector2.DOWN: "down", Vector2.UP: "up", Vector2.LEFT: "left", Vector2.RIGHT: "right" }
+const dirs : Dictionary = { Vector2.DOWN: "down", Vector2.UP: "up", Vector2.LEFT: "left", Vector2.RIGHT: "right" }
 var facing : String = dirs[ Vector2.DOWN ]
 
 func _physics_process( _delta: float ) -> void:

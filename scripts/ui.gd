@@ -72,7 +72,7 @@ func _input( event: InputEvent ) -> void:
 		if event.is_action_pressed("start"):
 			if get_tree().paused:
 				exit_pause_menu()
-			elif !get_tree().paused:
+			else:
 				enter_pause_menu()
 			get_viewport().set_input_as_handled()
 	

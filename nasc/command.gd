@@ -1,6 +1,6 @@
+extends RefCounted
 class_name Command
 
-# Base command class
 var is_discrete: bool = false  # true for one-time actions, false for continuous
 
 func execute(_nasc: Nasc) -> void:
