@@ -1,20 +1,14 @@
 extends NascState
 class_name NascWalkingState
 
-var input_vector : Vector2 = Vector2.ZERO
-
 func _ready() -> void:
 	await super._ready()
 
 func enter() -> void:
-	if nasc.is_carrying:
-		nasc.animated_sprite_2d.play( "carry_" + nasc.facing )
-	elif nasc.has_shield == Nasc.SHIELD_1:
-		nasc.animated_sprite_2d.play( "walk_s1_" + nasc.facing )
-	elif nasc.has_shield == Nasc.SHIELD_2:
-		nasc.animated_sprite_2d.play( "walk_s2_" + nasc.facing )
-	else:
-		nasc.animated_sprite_2d.play( "walk_" + nasc.facing )
+	_sync_animation()
+
+func physics_update(_delta: float) -> void:
+	_sync_animation()
 
 func handle_command( command: Command ) -> void:
 	super.handle_command( command )
@@ -25,3 +19,17 @@ func handle_command( command: Command ) -> void:
 		finished.emit( self, "jumping" )
 	elif command is DigCommand:
 		finished.emit( self, "digging" )
+
+func _sync_animation() -> void:
+	var anim : String
+	if nasc.is_carrying:
+		anim = "carry_" + nasc.facing
+	elif nasc.has_shield == Nasc.SHIELD_1:
+		anim = "walk_s1_" + nasc.facing
+	elif nasc.has_shield == Nasc.SHIELD_2:
+		anim = "walk_s2_" + nasc.facing
+	else:
+		anim = "walk_" + nasc.facing
+
+	if nasc.animated_sprite_2d.animation != anim:
+		nasc.animated_sprite_2d.play( anim )
