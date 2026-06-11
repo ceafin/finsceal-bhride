@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://itc72veiv3b4"]
+[gd_scene format=3 uid="uid://itc72veiv3b4"]
 
 [ext_resource type="Script" uid="uid://dge6f2r1soeri" path="res://nasc/nasc.gd" id="1_j2v7k"]
 [ext_resource type="Script" uid="uid://bcnwddrh4p546" path="res://nasc/input_handler.gd" id="2_ah7tq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://d1g6bdsmnihnh" path="res://nasc/fsm/walking_state.gd" id="5_yktvx"]
 [ext_resource type="Script" uid="uid://b3edadx1huqkx" path="res://nasc/fsm/jumping_state.gd" id="6_ah7tq"]
 [ext_resource type="Script" uid="uid://cc5btqme1m4e8" path="res://nasc/fsm/digging_state.gd" id="7_8uf3y"]
+[ext_resource type="Script" uid="uid://chmm0pkrp8hvy" path="res://nasc/fsm/sword_state.gd" id="8_srdst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1h3k9"]
 size = Vector2(10, 7)
@@ -1014,46 +1015,49 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Nasc" type="CharacterBody2D" groups=["Nasc", "Player"]]
+[node name="Nasc" type="CharacterBody2D" unique_id=826266954 groups=["Nasc", "Player"]]
 collision_mask = 20
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_j2v7k")
 
-[node name="InputHandler" type="Node" parent="."]
+[node name="InputHandler" type="Node" parent="." unique_id=1282132299]
 script = ExtResource("2_ah7tq")
 metadata/_custom_type_script = "uid://bcnwddrh4p546"
 
-[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="FSM" type="Node" parent="." unique_id=985287950 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_tauil")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://cvpw10mgrlqc0"
 
-[node name="Idle" type="Node" parent="FSM"]
+[node name="Idle" type="Node" parent="FSM" unique_id=1989096630]
 script = ExtResource("4_xt2jp")
 metadata/_custom_type_script = "uid://7q0l7gdce6w7"
 
-[node name="Walking" type="Node" parent="FSM"]
+[node name="Walking" type="Node" parent="FSM" unique_id=414940871]
 script = ExtResource("5_yktvx")
 metadata/_custom_type_script = "uid://d1g6bdsmnihnh"
 
-[node name="Jumping" type="Node" parent="FSM"]
+[node name="Jumping" type="Node" parent="FSM" unique_id=353693322]
 script = ExtResource("6_ah7tq")
 metadata/_custom_type_script = "uid://b3edadx1huqkx"
 
-[node name="Digging" type="Node" parent="FSM"]
+[node name="Digging" type="Node" parent="FSM" unique_id=2069932292]
 script = ExtResource("7_8uf3y")
 metadata/_custom_type_script = "uid://cc5btqme1m4e8"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Sword" type="Node" parent="FSM" unique_id=848525185]
+script = ExtResource("8_srdst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498041545]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_1h3k9")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166215844]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_ur7pv")
-animation = &"dig_up"
+animation = &"slash_left"
 
-[node name="InteractionRay" type="RayCast2D" parent="."]
+[node name="InteractionRay" type="RayCast2D" parent="." unique_id=947440210]
 target_position = Vector2(0, 10)
 collision_mask = 21

@@ -8,7 +8,3 @@ func _init( dir: Vector2 ) -> void:
 
 func execute( nasc: Nasc ) -> void:
 	nasc.velocity = direction * nasc.movement_speed
-
-func can_execute( nasc: Nasc ) -> bool:
-	return not nasc.is_performing_discrete_action
-	

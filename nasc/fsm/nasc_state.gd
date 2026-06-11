@@ -6,6 +6,9 @@ var nasc : CharacterBody2D
 
 signal finished( acting_state: NascState, new_state_name: String )
 
+func blocks_actions() -> bool:
+	return false
+
 func _ready() -> void:
 	await owner.ready
 	nasc = owner as Nasc

@@ -10,4 +10,4 @@ func create_command( nasc: Nasc ) -> Command:
 	return JumpCommand.new( nasc.velocity )
 
 func can_use( nasc: Nasc ) -> bool:
-	return super.can_use( nasc ) and nasc.is_grounded()
+	return nasc.is_grounded()

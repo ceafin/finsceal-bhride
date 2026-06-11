@@ -5,7 +5,6 @@ enum { SHIELD_0, SHIELD_1, SHIELD_2 }
 
 var is_carrying : bool = false
 var has_shield : int = SHIELD_0
-var is_performing_discrete_action : bool = false
 var jump_momentum : Vector2 = Vector2.ZERO
 
 # Set at the Game Node Scene Root
@@ -16,6 +15,7 @@ var equipment_manager : EquipmentManager:
 		if input_handler:
 			input_handler.equipment_manager = equipment_manager
 
+@onready var fsm : NascFSM = $FSM
 @onready var input_handler : InputHandler = $InputHandler
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_ray : RayCast2D = $InteractionRay
@@ -26,9 +26,9 @@ var movement_speed : float = 60.0
 const dirs : Dictionary = { Vector2.DOWN: "down", Vector2.UP: "up", Vector2.LEFT: "left", Vector2.RIGHT: "right" }
 var facing : String = dirs[ Vector2.DOWN ]
 
-func _physics_process( _delta: float ) -> void:
-	set_facing_direction()
-
+# True when the current FSM state should block new actions from starting
+func is_busy() -> bool:
+	return fsm != null and fsm.current_state != null and fsm.current_state.blocks_actions()
 
 func set_facing_direction() -> void:
 	var input_dir : Vector2 = Vector2(
@@ -38,7 +38,7 @@ func set_facing_direction() -> void:
 	if input_dir != Vector2.ZERO:
 		if is_equal_approx( input_dir.length_squared(), 1.0 ):
 			facing = dirs[ input_dir ]
-		
+
 			if interaction_ray:
 				interaction_ray.target_position = input_dir * 12
 

@@ -12,6 +12,6 @@ enum ItemType { WEAPON, TOOL, CONSUMABLE }
 func create_command( nasc: Nasc ) -> Command:
 	return null  # Defined in actual item subclasses
 
-# Can Nasc use this item at the moment
-func can_use( nasc: Nasc ) -> bool:
-	return not nasc.is_performing_discrete_action
+# Override in subclasses for item-specific prerequisites (e.g. must be grounded)
+func can_use( _nasc: Nasc ) -> bool:
+	return true
