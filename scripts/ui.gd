@@ -17,6 +17,9 @@ var hearts : float :
 	get:
 		return _hearts
 	set( value ):
+		_hearts = value
+		if not is_node_ready():
+			return
 		for i in heart_grid.get_child_count():
 			if value > i * 2 + 1:
 				heart_grid.get_child( i ).texture = HEART_FULL
@@ -24,7 +27,6 @@ var hearts : float :
 				heart_grid.get_child( i ).texture = HEART_PART
 			else:
 				heart_grid.get_child( i ).texture = HEART_EMPTY
-		_hearts = value
 
 # Set at the Game Node Scene Root
 var equipment_manager : EquipmentManager:
@@ -34,7 +36,6 @@ var equipment_manager : EquipmentManager:
 			equipment_manager.slot_changed.connect( _on_slot_changed )
 			_refresh_equipment_display()
 
-# References to UI Display elements, that will be there
 @onready var slot_west_display  : TextureRect = $AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX/HUDItemX/TextureRect
 @onready var slot_north_display : TextureRect = $AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY/HUDItemY/TextureRect
 @onready var slot_east_display  : TextureRect = $AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA/HUDItemA/TextureRect
@@ -47,10 +48,6 @@ func _ready() -> void:
 
 func _on_slot_changed( _slot_name: String, _item: Item ) -> void:
 	_refresh_equipment_display()
-	# Play sound effect for equipping/unequipping item, like:
-	# var sfx_player = get_node_or_null( "SFXPlayer" )
-	# if sfx_player:
-	#     sfx_player.play_sound( "res://sounds/equip_item.wav" )
 
 func _refresh_equipment_display() -> void:
 	if not equipment_manager:
@@ -68,30 +65,23 @@ func _refresh_equipment_display() -> void:
 
 
 func _input( event: InputEvent ) -> void:
-	if event.is_action_type() and not event.is_echo():
-		if event.is_action_pressed("start"):
-			if get_tree().paused:
-				exit_pause_menu()
-			else:
-				enter_pause_menu()
-			get_viewport().set_input_as_handled()
-	
+	if event.is_action_pressed( "start" ):
+		if get_tree().paused:
+			exit_pause_menu()
+		else:
+			enter_pause_menu()
+		get_viewport().set_input_as_handled()
 
-# Escaped Inputs Printed
-# func _unhandled_input(event: InputEvent) -> void:
-# 	print( "Unhandled: ", event.as_text() )
 
 func enter_pause_menu() -> void:
-	print( "Pulling down the pause menu!" )
-	get_tree().paused = not get_tree().paused
-	var pull_down_tween = create_tween()
+	get_tree().paused = true
 	SFX.play( LA_PAUSE_MENU_OPEN )
-	pull_down_tween.tween_property( self, "global_position", OPENED_POSITION, 0.5 ).set_trans( Tween.TRANS_QUART ).set_ease( Tween.EASE_IN_OUT )
+	var tween = create_tween()
+	tween.tween_property( self, "global_position", OPENED_POSITION, 0.5 ).set_trans( Tween.TRANS_QUART ).set_ease( Tween.EASE_IN_OUT )
 
 func exit_pause_menu() -> void:
-	print( "Rolling up the pause menu!" )
-	var roll_up_tween = create_tween()
 	SFX.play( LA_PAUSE_MENU_CLOSE )
-	roll_up_tween.tween_property( self, "global_position", CLOSED_POSITION, 0.2 ).set_trans( Tween.TRANS_EXPO ).set_ease( Tween.EASE_OUT )
-	await roll_up_tween.finished
-	get_tree().paused = not get_tree().paused
+	var tween = create_tween()
+	tween.tween_property( self, "global_position", CLOSED_POSITION, 0.2 ).set_trans( Tween.TRANS_EXPO ).set_ease( Tween.EASE_OUT )
+	await tween.finished
+	get_tree().paused = false

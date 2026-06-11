@@ -6,16 +6,7 @@ func _ready() -> void:
 
 func enter() -> void:
 	nasc.velocity = Vector2.ZERO
-
-	if nasc.is_carrying:
-		nasc.animated_sprite_2d.play( "carry_" + nasc.facing )
-	elif nasc.has_shield == Nasc.SHIELD_1:
-		nasc.animated_sprite_2d.play( "walk_s1_" + nasc.facing )
-	elif nasc.has_shield == Nasc.SHIELD_2:
-		nasc.animated_sprite_2d.play( "walk_s2_" + nasc.facing )
-	else:
-		nasc.animated_sprite_2d.play( "walk_" + nasc.facing )
-
+	nasc.animated_sprite_2d.play(nasc.get_walk_animation_name())
 	nasc.animated_sprite_2d.pause()
 
 func handle_command( command: Command ) -> void:

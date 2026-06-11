@@ -2,7 +2,7 @@
 extends Node
 class_name NascState
 
-var nasc : CharacterBody2D
+var nasc : Nasc
 
 signal finished( acting_state: NascState, new_state_name: String )
 

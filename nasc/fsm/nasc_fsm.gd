@@ -5,7 +5,7 @@ class_name NascFSM
 @export var initial_state : NascState = null  # GUI assignable if I want
 @export var input_handler : InputHandler = null  # GUI assignable if I want
 
-var nasc : CharacterBody2D  # Hold the Nasc Player node
+var nasc : Nasc
 var current_state : NascState
 var states : Dictionary = {}
 

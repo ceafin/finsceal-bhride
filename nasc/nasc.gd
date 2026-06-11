@@ -11,7 +11,6 @@ var jump_momentum : Vector2 = Vector2.ZERO
 var equipment_manager : EquipmentManager:
 	set( value ):
 		equipment_manager = value
-		# Assign the scene's Input Manager when assigning the Equipment Manager
 		if input_handler:
 			input_handler.equipment_manager = equipment_manager
 
@@ -23,25 +22,32 @@ var equipment_manager : EquipmentManager:
 # Speeds that look pretty: 42.5, 85.0, 170.0
 # speed = d * 2^.5 * physics_fps
 var movement_speed : float = 60.0
-const dirs : Dictionary = { Vector2.DOWN: "down", Vector2.UP: "up", Vector2.LEFT: "left", Vector2.RIGHT: "right" }
-var facing : String = dirs[ Vector2.DOWN ]
+var facing : String = "down"
 
-# True when the current FSM state should block new actions from starting
 func is_busy() -> bool:
 	return fsm != null and fsm.current_state != null and fsm.current_state.blocks_actions()
 
 func set_facing_direction() -> void:
-	var input_dir : Vector2 = Vector2(
-		Input.get_axis( "move_left", "move_right" ),
-		Input.get_axis( "move_up", "move_down" )
-	)
-	if input_dir != Vector2.ZERO:
-		if is_equal_approx( input_dir.length_squared(), 1.0 ):
-			facing = dirs[ input_dir ]
+	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if input_dir == Vector2.ZERO:
+		return
+	var cardinal : Vector2
+	if abs(input_dir.x) >= abs(input_dir.y):
+		facing = "right" if input_dir.x > 0 else "left"
+		cardinal = Vector2(sign(input_dir.x), 0)
+	else:
+		facing = "down" if input_dir.y > 0 else "up"
+		cardinal = Vector2(0, sign(input_dir.y))
+	if interaction_ray:
+		interaction_ray.target_position = cardinal * 12
 
-			if interaction_ray:
-				interaction_ray.target_position = input_dir * 12
+func get_walk_animation_name() -> String:
+	if is_carrying:
+		return "carry_" + facing
+	match has_shield:
+		SHIELD_1: return "walk_s1_" + facing
+		SHIELD_2: return "walk_s2_" + facing
+	return "walk_" + facing
 
 func is_grounded() -> bool:
-	# Implement floor detection if needed
 	return true

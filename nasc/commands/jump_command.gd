@@ -4,7 +4,6 @@ class_name JumpCommand
 var jump_velocity : Vector2
 
 func _init( momentum: Vector2 = Vector2.ZERO ) -> void:
-	is_discrete = true
 	jump_velocity = momentum
 
 func execute( nasc: Nasc ) -> void:
