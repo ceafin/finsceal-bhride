@@ -1046,8 +1046,9 @@ metadata/_custom_type_script = "uid://b3edadx1huqkx"
 script = ExtResource("7_8uf3y")
 metadata/_custom_type_script = "uid://cc5btqme1m4e8"
 
-[node name="Sword" type="Node" parent="FSM" unique_id=848525185]
+[node name="Sword" type="Node" parent="FSM" unique_id=272026596]
 script = ExtResource("8_srdst")
+metadata/_custom_type_script = "uid://chmm0pkrp8hvy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498041545]
 position = Vector2(0, -0.5)
