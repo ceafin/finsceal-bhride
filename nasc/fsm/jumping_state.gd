@@ -13,12 +13,10 @@ func blocks_actions() -> bool:
 func enter() -> void:
 	jump_timer = 0.0
 	nasc.velocity = nasc.jump_momentum
-	nasc.animated_sprite_2d.play("jump_" + nasc.facing)
+	nasc.play_animation("jump_" + nasc.facing)
 
 func physics_update(delta: float) -> void:
-	nasc.set_facing_direction()
 	jump_timer += delta
-
 	if jump_timer >= jump_duration:
 		if nasc.velocity.length_squared() > 0.1:
 			finished.emit(self, "walking")
@@ -26,8 +24,8 @@ func physics_update(delta: float) -> void:
 			finished.emit(self, "idle")
 
 func handle_command( command: Command ) -> void:
-	# During jumping, allow movement commands to change velocity but don't transition states
 	if command is MoveCommand:
+		nasc.update_facing(command.direction)
 		command.execute( nasc )
 	elif command is IdleCommand:
 		command.execute( nasc )

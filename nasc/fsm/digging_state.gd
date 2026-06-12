@@ -9,8 +9,8 @@ func blocks_actions() -> bool:
 
 func enter() -> void:
 	nasc.velocity = Vector2.ZERO
-	nasc.animated_sprite_2d.play( "dig_" + nasc.facing )
-	nasc.animated_sprite_2d.animation_finished.connect(_finished_digging)
+	nasc.play_animation("dig_" + nasc.facing)
+	nasc.animation_finished.connect(_finished_digging)
 
 func handle_command( command: Command ) -> void:
 	if command is IdleCommand:
@@ -23,5 +23,5 @@ func _finished_digging() -> void:
 		finished.emit( self, "idle" )
 
 func exit() -> void:
-	if nasc.animated_sprite_2d.animation_finished.is_connected(_finished_digging):
-		nasc.animated_sprite_2d.animation_finished.disconnect(_finished_digging)
+	if nasc.animation_finished.is_connected(_finished_digging):
+		nasc.animation_finished.disconnect(_finished_digging)
