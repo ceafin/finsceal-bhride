@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SwordItem" format=3 uid="uid://5yhogeuk48sm"]
+
+[ext_resource type="Script" uid="uid://bsqd0ymw0yvm6" path="res://scripts/items/sword_item.gd" id="1_lx3pm"]
+
+[resource]
+script = ExtResource("1_lx3pm")
+item_name = "Sword"
+is_continuous = true
+metadata/_custom_type_script = "uid://bsqd0ymw0yvm6"

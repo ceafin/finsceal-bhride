@@ -3,23 +3,31 @@ class_name EquipmentManager
 
 signal slot_changed( slot_name: String, item: Item )
 
+@export_group("Inventory")
+@export var starting_inventory : Array[Item] = []
+
+@export_group("Default Equipment")
+@export var default_slot_north : Item = null
+@export var default_slot_east  : Item = null
+@export var default_slot_south : Item = null
+@export var default_slot_west  : Item = null
+
 var slots : Dictionary = {
 	"slot_north": null,
-	"slot_east": null,
+	"slot_east":  null,
 	"slot_south": null,
-	"slot_west": null,
+	"slot_west":  null,
 }
 
-var inventory : Array[ Item ] = []
+var inventory : Array[Item] = []
 
 func _ready() -> void:
-	inventory.append( SwordItem.new() )
-	inventory.append( ShovelItem.new() )
-	inventory.append( FeatherItem.new() )
+	inventory = starting_inventory.duplicate()
 
-	equip_item( "slot_south", inventory[0] )
-	equip_item( "slot_west", inventory[1] )
-	equip_item( "slot_east", inventory[2] )
+	if default_slot_north: equip_item("slot_north", default_slot_north)
+	if default_slot_east:  equip_item("slot_east",  default_slot_east)
+	if default_slot_south: equip_item("slot_south", default_slot_south)
+	if default_slot_west:  equip_item("slot_west",  default_slot_west)
 
 func equip_item( slot_name: String, item: Item ) -> void:
 	if slot_name not in slots:

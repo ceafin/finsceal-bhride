@@ -1,33 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://7c8hs8t8ljpe"]
+[gd_scene format=3 uid="uid://7c8hs8t8ljpe"]
 
 [ext_resource type="Script" uid="uid://tggbku6g0iad" path="res://scripts/game.gd" id="1_0h5k6"]
 [ext_resource type="Script" uid="uid://dsi0nwbkym4u8" path="res://scripts/equipment_manager.gd" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://b40ph65b3l5k4" path="res://scenes/overworld.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://itc72veiv3b4" path="res://nasc/nasc.tscn" id="2_qbsmt"]
+[ext_resource type="Script" uid="uid://cgibf4hctyq27" path="res://scripts/item.gd" id="3_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bqeokt701xasg" path="res://scenes/ui.tscn" id="3_lnu2h"]
+[ext_resource type="Resource" uid="uid://5yhogeuk48sm" path="res://resources/items/sword_item.tres" id="4_vtaks"]
+[ext_resource type="Resource" uid="uid://c47w55trtabj5" path="res://resources/items/shovel_item.tres" id="5_kvpfn"]
+[ext_resource type="Resource" uid="uid://c0eypenmf4al" path="res://resources/items/feather_item.tres" id="6_dinhu"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" unique_id=1531538454]
 process_mode = 3
 script = ExtResource("1_0h5k6")
 
-[node name="EquipmentManager" type="Node" parent="."]
+[node name="EquipmentManager" type="Node" parent="." unique_id=1509270071]
 process_mode = 3
 script = ExtResource("2_iywne")
+starting_inventory = Array[ExtResource("3_0tnpc")]([ExtResource("4_vtaks"), ExtResource("5_kvpfn"), ExtResource("6_dinhu")])
+default_slot_east = ExtResource("6_dinhu")
+default_slot_south = ExtResource("4_vtaks")
+default_slot_west = ExtResource("5_kvpfn")
 metadata/_custom_type_script = "uid://dsi0nwbkym4u8"
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="." unique_id=304079430]
 process_mode = 1
 
-[node name="Overworld" parent="World" instance=ExtResource("2_lbhrr")]
+[node name="Overworld" parent="World" unique_id=631017573 instance=ExtResource("2_lbhrr")]
 
-[node name="Player" parent="World" instance=ExtResource("2_qbsmt")]
+[node name="Player" parent="World" unique_id=1111916781 instance=ExtResource("2_qbsmt")]
 position = Vector2(217, 60)
 
-[node name="Camera2D" type="Camera2D" parent="World/Player"]
+[node name="Camera2D" type="Camera2D" parent="World/Player" unique_id=1955626701]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2070517220]
 process_mode = 3
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("3_lnu2h")]
+[node name="UI" parent="CanvasLayer" unique_id=654093696 instance=ExtResource("3_lnu2h")]
 offset_top = -224.0
 offset_bottom = -224.0

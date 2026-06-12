@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FeatherItem" format=3 uid="uid://c0eypenmf4al"]
+
+[ext_resource type="Script" uid="uid://fmysqpwfvywk" path="res://scripts/items/feather_item.gd" id="1_n8r0a"]
+
+[resource]
+script = ExtResource("1_n8r0a")
+item_name = "Feather"
+item_type = 1
+metadata/_custom_type_script = "uid://fmysqpwfvywk"
