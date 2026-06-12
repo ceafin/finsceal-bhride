@@ -31,15 +31,19 @@ func set_facing_direction() -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if input_dir == Vector2.ZERO:
 		return
-	var cardinal : Vector2
-	if abs(input_dir.x) >= abs(input_dir.y):
+	var has_x := not is_zero_approx(input_dir.x)
+	var has_y := not is_zero_approx(input_dir.y)
+	# Diagonal input preserves current facing; only pure cardinal presses change it
+	if has_x and not has_y:
 		facing = "right" if input_dir.x > 0 else "left"
-		cardinal = Vector2(sign(input_dir.x), 0)
-	else:
+	elif has_y and not has_x:
 		facing = "down" if input_dir.y > 0 else "up"
-		cardinal = Vector2(0, sign(input_dir.y))
 	if interaction_ray:
-		interaction_ray.target_position = cardinal * 12
+		match facing:
+			"right": interaction_ray.target_position = Vector2(12, 0)
+			"left":  interaction_ray.target_position = Vector2(-12, 0)
+			"down":  interaction_ray.target_position = Vector2(0, 12)
+			"up":    interaction_ray.target_position = Vector2(0, -12)
 
 func get_walk_animation_name() -> String:
 	if is_carrying:
