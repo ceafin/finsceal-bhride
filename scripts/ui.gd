@@ -44,9 +44,14 @@ var _cursor_index : int = 0
 @onready var slot_east_display  : TextureRect = $AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA/HUDItemA/TextureRect
 @onready var slot_south_display : TextureRect = $AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB/HUDItemB/TextureRect
 
+@onready var _inv_slot_west_display  : TextureRect = $AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnX/InvItemX/TextureRect
+@onready var _inv_slot_north_display : TextureRect = $AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnY/InvItemY/TextureRect
+@onready var _inv_slot_east_display  : TextureRect = $AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnA/InvItemA/TextureRect
+@onready var _inv_slot_south_display : TextureRect = $AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnB/InvItemB/TextureRect
+
 @onready var heart_grid          : GridContainer       = $AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid
 @onready var _inventory_grid     : GridContainer       = $AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer
-@onready var _inventory_selector : UIInventorySelector = $AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/UIInventorySelector
+@onready var _inventory_selector : UIInventorySelector = $AdventureMenu/InventoryMenu/UIInventorySelector
 
 func _ready() -> void:
 	_inventory_selector.set_visible_cursor(false)
@@ -71,6 +76,10 @@ func _refresh_equipment_display() -> void:
 	slot_east_display.texture  = east.icon  if east  else null
 	slot_south_display.texture = south.icon if south else null
 	slot_west_display.texture  = west.icon  if west  else null
+	_inv_slot_north_display.texture = north.icon if north else null
+	_inv_slot_east_display.texture  = east.icon  if east  else null
+	_inv_slot_south_display.texture = south.icon if south else null
+	_inv_slot_west_display.texture  = west.icon  if west  else null
 
 func _refresh_inventory_grid() -> void:
 	if not equipment_manager:

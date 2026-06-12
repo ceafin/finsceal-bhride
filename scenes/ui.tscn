@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqeokt701xasg"]
+[gd_scene format=3 uid="uid://bqeokt701xasg"]
 
 [ext_resource type="Script" uid="uid://clr3sb3nh8ll5" path="res://scripts/ui.gd" id="1_nt7q6"]
-[ext_resource type="Texture2D" uid="uid://d0gdd1v2xfweg" path="res://assets/Sprite sheet for Basic Pack.png" id="2_x4jx1"]
+[ext_resource type="Texture2D" uid="uid://bye3rq4mcv7bn" path="res://assets/Sprite sheet for Basic Pack.png" id="2_x4jx1"]
 [ext_resource type="Texture2D" uid="uid://dc1gtlhdfl6qc" path="res://assets/hud_button_frame_x.png" id="3_8dubc"]
-[ext_resource type="FontFile" uid="uid://bbmmhyqpu3ne7" path="res://assets/Early GameBoy.ttf" id="3_p7vwb"]
+[ext_resource type="FontFile" uid="uid://dg7h2a7vvy5pu" path="res://assets/Early GameBoy.ttf" id="3_p7vwb"]
 [ext_resource type="PackedScene" uid="uid://dy1if52qn80d8" path="res://scenes/ui_inventory_selector.tscn" id="4_cgfq5"]
 [ext_resource type="Texture2D" uid="uid://wmrctppm37k6" path="res://assets/heart_full.png" id="4_ktti3"]
 [ext_resource type="Texture2D" uid="uid://cuvbm723gro5c" path="res://assets/hud_button_frame_y.png" id="4_p7vwb"]
@@ -24,7 +24,7 @@ font_size = 8
 shadow_size = 0
 shadow_offset = Vector2(0, 0)
 
-[node name="UI" type="Control"]
+[node name="UI" type="Control" unique_id=820360487]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -36,7 +36,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_nt7q6")
 
-[node name="AdventureMenu" type="VBoxContainer" parent="."]
+[node name="AdventureMenu" type="VBoxContainer" parent="." unique_id=301203601]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,7 +48,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="InventoryMenu" type="NinePatchRect" parent="AdventureMenu"]
+[node name="InventoryMenu" type="NinePatchRect" parent="AdventureMenu" unique_id=1797790844]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_x4jx1")
@@ -58,7 +58,14 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="AdventureMenu/InventoryMenu"]
+[node name="UIInventorySelector" parent="AdventureMenu/InventoryMenu" unique_id=634663654 instance=ExtResource("4_cgfq5")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 288.0
+offset_bottom = 218.0
+
+[node name="MarginContainer" type="MarginContainer" parent="AdventureMenu/InventoryMenu" unique_id=624833137]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,183 +77,180 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 6
 
-[node name="InvHBox" type="HBoxContainer" parent="AdventureMenu/InventoryMenu/MarginContainer"]
+[node name="InvHBox" type="HBoxContainer" parent="AdventureMenu/InventoryMenu/MarginContainer" unique_id=566776284]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Equipables" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox"]
+[node name="Equipables" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox" unique_id=572420377]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="InventoryTitleLabel" type="Label" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables"]
+[node name="InventoryTitleLabel" type="Label" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables" unique_id=837175450]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Some Nonsense
 About Inventory"
 label_settings = SubResource("LabelSettings_ktti3")
 
-[node name="GridContainer" type="GridContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables"]
+[node name="GridContainer" type="GridContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables" unique_id=2134462116]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 columns = 7
 
-[node name="Panel" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=436439637]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel2" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1728681264]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel3" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel3" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=761145142]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel4" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel4" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1499446038]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel5" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel5" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1206632356]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel6" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel6" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=947186806]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel7" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel7" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=971347577]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel8" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel8" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1962528457]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel9" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel9" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1316891995]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel10" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel10" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=427604631]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel11" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel11" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=692671273]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel12" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel12" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=911218855]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel13" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel13" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=162192876]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel14" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel14" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=870873907]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel15" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel15" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1900459159]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel16" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel16" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=779618208]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel17" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel17" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=519209176]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel18" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel18" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=2119713932]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel19" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel19" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=986304958]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel20" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel20" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=334591460]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel21" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel21" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1126457332]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel22" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel22" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1161637685]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel23" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel23" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=370435645]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel24" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel24" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=742471580]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel25" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel25" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1052089360]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel26" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel26" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1693704042]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel27" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel27" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1409283306]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel28" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel28" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1214135278]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel29" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel29" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=683882603]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel30" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel30" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=2057013051]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel31" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel31" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1570585029]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel32" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel32" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=1127089194]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel33" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel33" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=129194247]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel34" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel34" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=643970742]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Panel35" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer"]
+[node name="Panel35" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables/GridContainer" unique_id=2106860667]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="UIInventorySelector" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Equipables" instance=ExtResource("4_cgfq5")]
+[node name="Abilities" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox" unique_id=759006646]
 layout_mode = 2
 
-[node name="Abilities" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities" unique_id=1707877121]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TopSpacer" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+[node name="TopSpacer" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer" unique_id=1045213201]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InvBtnAsgmts" type="GridContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+[node name="InvBtnAsgmts" type="GridContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer" unique_id=89899841]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 3
@@ -254,13 +258,13 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="Spacer" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+[node name="Spacer" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts" unique_id=36237100]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InvBtnX" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+[node name="InvBtnX" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts" unique_id=1303262323]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -272,7 +276,7 @@ patch_margin_top = 16
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="InvItemX" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnX"]
+[node name="InvItemX" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnX" unique_id=1286545216]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -284,16 +288,16 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnX/InvItemX"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnX/InvItemX" unique_id=379272801]
 layout_mode = 2
 
-[node name="Spacer2" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+[node name="Spacer2" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts" unique_id=754629966]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InvBtnY" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+[node name="InvBtnY" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts" unique_id=1000924626]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -305,7 +309,7 @@ patch_margin_top = 16
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="InvItemY" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnY"]
+[node name="InvItemY" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnY" unique_id=2043316106]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -317,16 +321,16 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnY/InvItemY"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnY/InvItemY" unique_id=1690192500]
 layout_mode = 2
 
-[node name="Spacer3" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+[node name="Spacer3" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts" unique_id=337167183]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InvBtnA" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+[node name="InvBtnA" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts" unique_id=1334366243]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -338,7 +342,7 @@ patch_margin_top = 16
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="InvItemA" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnA"]
+[node name="InvItemA" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnA" unique_id=1079529876]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -350,16 +354,16 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnA/InvItemA"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnA/InvItemA" unique_id=1908265306]
 layout_mode = 2
 
-[node name="Spacer4" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+[node name="Spacer4" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts" unique_id=2027626023]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InvBtnB" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+[node name="InvBtnB" type="NinePatchRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts" unique_id=1870361196]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -371,7 +375,7 @@ patch_margin_top = 16
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="InvItemB" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnB"]
+[node name="InvItemB" type="MarginContainer" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnB" unique_id=1485358349]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -383,21 +387,21 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnB/InvItemB"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts/InvBtnB/InvItemB" unique_id=188796196]
 layout_mode = 2
 
-[node name="Panel5" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts"]
+[node name="Panel5" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer/InvBtnAsgmts" unique_id=1550913982]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BottomSpacer" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer"]
+[node name="BottomSpacer" type="Panel" parent="AdventureMenu/InventoryMenu/MarginContainer/InvHBox/Abilities/VBoxContainer" unique_id=658045684]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="OverlapHUD" type="NinePatchRect" parent="AdventureMenu"]
+[node name="OverlapHUD" type="NinePatchRect" parent="AdventureMenu" unique_id=1276434]
 custom_minimum_size = Vector2(400, 36)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -407,7 +411,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 6
 
-[node name="OverlapHBox" type="HBoxContainer" parent="AdventureMenu/OverlapHUD"]
+[node name="OverlapHBox" type="HBoxContainer" parent="AdventureMenu/OverlapHUD" unique_id=534250731]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -416,12 +420,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="LifeMeter" type="VBoxContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox"]
+[node name="LifeMeter" type="VBoxContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox" unique_id=1592181520]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="LifeLabel" type="Label" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter"]
+[node name="LifeLabel" type="Label" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter" unique_id=341715602]
 layout_mode = 2
 size_flags_vertical = 0
 text = "--- Life ---"
@@ -429,7 +433,7 @@ label_settings = SubResource("LabelSettings_8dubc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HeartGrid" type="GridContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter"]
+[node name="HeartGrid" type="GridContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter" unique_id=1915271833]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -437,123 +441,123 @@ theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 1
 columns = 10
 
-[node name="1" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="1" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=1064238215]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="2" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="2" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=1739996258]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="3" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="3" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=1416020199]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="4" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="4" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=204828816]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="5" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="5" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=100078537]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="6" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="6" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=1086769713]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="7" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="7" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=940511605]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="8" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="8" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=2078174139]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="9" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="9" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=517093486]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="10" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="10" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=354797110]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="11" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="11" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=1638072343]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="12" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="12" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=1489600207]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="13" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="13" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=48030653]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="14" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="14" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=1426126125]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="15" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid"]
+[node name="15" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/LifeMeter/HeartGrid" unique_id=843690561]
 custom_minimum_size = Vector2(9, 8)
 layout_mode = 2
 texture = ExtResource("4_ktti3")
 expand_mode = 3
 stretch_mode = 2
 
-[node name="Counters" type="HBoxContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox"]
+[node name="Counters" type="HBoxContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox" unique_id=1186138125]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="HUDButtonAssignments" type="HBoxContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox"]
+[node name="HUDButtonAssignments" type="HBoxContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox" unique_id=757120443]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 0
 
-[node name="HUDButtonX" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
+[node name="HUDButtonX" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments" unique_id=641750591]
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -565,7 +569,7 @@ patch_margin_top = 16
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="HUDItemX" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX"]
+[node name="HUDItemX" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX" unique_id=1853470650]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -577,10 +581,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX/HUDItemX"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonX/HUDItemX" unique_id=824109603]
 layout_mode = 2
 
-[node name="HUDButtonY" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
+[node name="HUDButtonY" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments" unique_id=432771905]
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -592,7 +596,7 @@ patch_margin_top = 16
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="HUDItemY" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY"]
+[node name="HUDItemY" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY" unique_id=728608743]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -604,10 +608,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY/HUDItemY"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonY/HUDItemY" unique_id=445422031]
 layout_mode = 2
 
-[node name="HUDButtonA" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
+[node name="HUDButtonA" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments" unique_id=450080515]
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -619,7 +623,7 @@ patch_margin_top = 16
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="HUDItemA" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA"]
+[node name="HUDItemA" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA" unique_id=249630359]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -631,10 +635,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA/HUDItemA"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonA/HUDItemA" unique_id=396018897]
 layout_mode = 2
 
-[node name="HUDButtonB" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments"]
+[node name="HUDButtonB" type="NinePatchRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments" unique_id=101138895]
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -646,7 +650,7 @@ patch_margin_top = 16
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="HUDItemB" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB"]
+[node name="HUDItemB" type="MarginContainer" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB" unique_id=953992064]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -658,5 +662,5 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB/HUDItemB"]
+[node name="TextureRect" type="TextureRect" parent="AdventureMenu/OverlapHUD/OverlapHBox/HUDButtonAssignments/HUDButtonB/HUDItemB" unique_id=1008365511]
 layout_mode = 2
