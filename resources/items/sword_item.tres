@@ -1,9 +1,15 @@
 [gd_resource type="Resource" script_class="SwordItem" format=3 uid="uid://5yhogeuk48sm"]
 
+[ext_resource type="Texture2D" uid="uid://bh1l6j3xs6ygv" path="res://assets/misc_zelda_tiles.png" id="1_21ffb"]
 [ext_resource type="Script" uid="uid://bsqd0ymw0yvm6" path="res://scripts/items/sword_item.gd" id="1_lx3pm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rca57"]
+atlas = ExtResource("1_21ffb")
+region = Rect2(112, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_lx3pm")
 item_name = "Sword"
 is_continuous = true
+icon = SubResource("AtlasTexture_rca57")
 metadata/_custom_type_script = "uid://bsqd0ymw0yvm6"

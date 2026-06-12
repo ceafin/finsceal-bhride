@@ -1,9 +1,15 @@
 [gd_resource type="Resource" script_class="ShovelItem" format=3 uid="uid://c47w55trtabj5"]
 
+[ext_resource type="Texture2D" uid="uid://bh1l6j3xs6ygv" path="res://assets/misc_zelda_tiles.png" id="1_b0df4"]
 [ext_resource type="Script" uid="uid://nsnkreesgdnf" path="res://scripts/items/shovel_item.gd" id="1_ldea0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7vsl"]
+atlas = ExtResource("1_b0df4")
+region = Rect2(0, 48, 16, 16)
 
 [resource]
 script = ExtResource("1_ldea0")
 item_name = "Shovel"
 item_type = 1
+icon = SubResource("AtlasTexture_v7vsl")
 metadata/_custom_type_script = "uid://nsnkreesgdnf"

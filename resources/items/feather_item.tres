@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://fmysqpwfvywk" path="res://scripts/items/feather_item.gd" id="1_n8r0a"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8r0a"]
+
 [resource]
 script = ExtResource("1_n8r0a")
 item_name = "Feather"
 item_type = 1
+icon = SubResource("AtlasTexture_n8r0a")
 metadata/_custom_type_script = "uid://fmysqpwfvywk"
